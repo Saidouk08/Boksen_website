@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Boksen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <header class="site-header">
     <h1><i class="fa-solid fa-envelope"></i> Contact</h1>
@@ -27,7 +31,20 @@
       <h2>Geef je mening</h2>
       <p>Vul het formulier in en laat weten wat je van mijn website vindt.</p>
 
-      <form id="meningFormulier" class="contact-form" action="mailto:VUL-HIER-JE-EMAILADRES-IN@example.com" method="post" enctype="text/plain">
+      <form id="meningFormulier" class="contact-form" action="https://formsubmit.co/saidoukane6@gmail.com" method="POST"
+        enctype="multipart/form-data">
+
+        <!-- BEVEILIGING & INSTELLINGEN -->
+        <input type="hidden" name="_subject" value="Nieuwe mening via mijn boksen website">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="bedankt.html">
+        <input type="hidden" name="_autoresponse" value="Bedankt voor je bericht!">
+
+        <!-- SPAMBEVEILIGING -->
+        <input type="text" name="_honey" style="display:none">
+
+        <!-- FORMULIER -->
+
         <label for="voornaam">Voornaam *</label>
         <input type="text" id="voornaam" name="voornaam" placeholder="Je voornaam" required>
 
@@ -64,7 +81,7 @@
           <option value="1">1 - Slecht</option>
         </select>
 
-        <label for="kleur">Favoriete kleur voor een sportwebsite</label>
+        <label for="kleur">Klik op de balk om een kleur te kiezen</label>
         <input type="color" id="kleur" name="favoriete_kleur" value="#b30000">
 
         <label for="datum">Datum van bezoek</label>
@@ -93,4 +110,5 @@
     <p>Gemaakt door Saidou Kane | Datum: 6 mei 2026</p>
   </footer>
 </body>
+
 </html>
