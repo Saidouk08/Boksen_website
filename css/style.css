@@ -62,7 +62,7 @@ img {
 
 .navbar a:hover,
 .navbar a.active {
-  background: #b30000;
+  background: #caaf00;
 }
 
 /* Inhoud */
@@ -92,7 +92,7 @@ img {
 button {
   display: inline-block;
   border: none;
-  background: #b30000;
+  background: #caaf00;
   color: white;
   padding: 0.8rem 1.1rem;
   border-radius: 999px;
@@ -103,7 +103,7 @@ button {
 
 .button:hover,
 button:hover {
-  background: #7d0000;
+  background: #caaf00;
 }
 
 .cards {
@@ -124,7 +124,7 @@ button:hover {
 }
 
 .card i {
-  color: #b30000;
+  color: #caaf00;
   font-size: 2rem;
 }
 
@@ -134,7 +134,7 @@ button:hover {
 }
 
 .tip h3 i {
-  color: #b30000;
+  color: #caaf00;
 }
 
 /* Galerij */
@@ -170,7 +170,7 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #b30000;
+  border-color: #caaf00;
 }
 
 fieldset {
@@ -304,7 +304,7 @@ fieldset input,
 
 .prev:hover,
 .next:hover {
-  background: #b30000;
+  background: #caaf00;
 }
 
 /* RESPONSIVE */
@@ -346,8 +346,8 @@ input[type="color"]::-webkit-color-swatch {
 
 /* Hover effect zodat duidelijk is dat je moet klikken */
 input[type="color"]:hover {
-  border-color: #b30000;
-  box-shadow: 0 0 10px rgba(179, 0, 0, 0.3);
+  border-color: #caaf00;
+  box-shadow: 0 0 10px rgba(202, 175, 0, 0.3);
 }
 
 /* Tekst erboven */
@@ -394,7 +394,7 @@ label[for="kleur"] {
 
 .side-menu a:hover,
 .side-menu a.active {
-  background: #b30000;
+  background: #caaf00;
 }
 
 /* SLUITKNOP */
@@ -416,4 +416,16 @@ label[for="kleur"] {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+/* LOGO in de header */
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
 }
