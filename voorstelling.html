@@ -16,14 +16,33 @@
 
 <body>
   <header class="site-header">
-    <h1><i class="fa-solid fa-dumbbell"></i> Boksen</h1>
-    <nav class="navbar" aria-label="Hoofdnavigatie">
-      <a href="index.html">Home</a>
-      <a class="active" href="voorstelling.html">Voorstelling</a>
-      <a href="galerij.html">Fotogalerij</a>
-      <a href="tips.html">Tips</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <h1><i class="fa-solid fa-dumbbell"></i> Clava</h1>
+   <header class="site-header">
+
+  <h1><i class="fa-solid fa-envelope"></i> Voorstelling</h1>
+
+  <!-- HAMBURGER KNOP -->
+  <button class="menu-toggle" onclick="openMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <!-- MENU -->
+  <nav class="side-menu" id="sideMenu">
+
+    <!-- SLUITKNOP -->
+    <button class="close-btn" onclick="closeMenu()">
+      &times;
+    </button>
+
+    <a href="index.html">Home</a>
+    <a class="active" href="voorstelling.html">Voorstelling</a>
+    <a href="galerij.html">Fotogalerij</a>
+    <a href="tips.html">Tips</a>
+    <a href="contact.html">Contact</a>
+
+  </nav>
+
+</header>
   </header>
 
   <main class="page-content">
@@ -98,6 +117,17 @@
   <footer class="site-footer">
     <p>Gemaakt door Saidou Kane | Datum: 6 mei 2026</p>
   </footer>
+  <script>
+
+  function openMenu() {
+    document.getElementById("sideMenu").style.width = "280px";
+  }
+
+  function closeMenu() {
+    document.getElementById("sideMenu").style.width = "0";
+  }
+
+</script>
 </body>
 
 </html>

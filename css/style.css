@@ -354,3 +354,66 @@ input[type="color"]:hover {
 label[for="kleur"] {
   font-weight: bold;
 }
+/* HAMBURGER KNOP */
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* ZIJMENU */
+
+.side-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #151515;
+  overflow-x: hidden;
+  transition: 0.4s;
+  padding-top: 80px;
+  z-index: 2000;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* LINKS */
+
+.side-menu a {
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+.side-menu a:hover,
+.side-menu a.active {
+  background: #b30000;
+}
+
+/* SLUITKNOP */
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+/* HEADER */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
