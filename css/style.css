@@ -1,196 +1,183 @@
-/* Algemene opmaak */
+/* totale breedte opmaak van website, '*' betekent alle HTML elementen */
 * {
   box-sizing: border-box;
 }
-
+/* Zorgt voor vloeiende scroll bij klikken op ankerlinks */
 html {
   scroll-behavior: smooth;
 }
-
+/* Algemene opmaak */
 body {
-  margin: 0;
-  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0; /*marge van rand website */
+  font-family: 'Roboto', Arial, sans-serif; 
   background-color: #f4f4f4;
   color: #222;
-  line-height: 1.6;
+  line-height: 1.6; /*witruimte tussen regels */
 }
-
+/* past de 3 soorten titels aan */
 h1, h2, h3 {
   font-family: 'Oswald', Arial, sans-serif;
-  margin-top: 0;
+  margin-top: 0; /* witruimte boven koppen */
 }
-
+/* past alle afbeeldingen aan zodat ze niet buiten hun container vallen en mooi schalen */
 img {
   max-width: 100%;
   height: auto;
   display: block;
   border-radius: 18px;
 }
-
-/* Vaste hoofding en menu */
+/* Vaste header en menu */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1000; /* bepaald welke elementen boven andere worden weergegeven, hoger getal = hoger in de stapel */
   background: #151515;
   color: white;
-  padding: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  padding: 1rem; /* ruimte binnen de header */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* horizontale offset, verticale offset, blur radius, kleur */
 }
-
+/* Logo en titel in de header (TITEL NAAST HAMBURGER) */
 .site-header h1 {
-  margin-bottom: 0.75rem;
-  text-align: center;
-  letter-spacing: 1px;
+  margin-bottom: 0.75rem; /* witruimte onder de titel */
+  text-align: center; /* centreert de titel horizontaal */
+  letter-spacing: 1px; /* vergroot de ruimte tussen letters voor een strakker uiterlijk */
 }
-
+/* word niet meer gebruikt*/ /*voor naviagtie menu in header*/
 .navbar {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
-
+/* word niet meer gebruikt*/ /*voor naviagtie menu in header*/
 .navbar a {
   color: white;
-  text-decoration: none;
+  text-decoration: none; /* verwijdert de standaard onderstreping van links */
   background: #2b2b2b;
-  padding: 0.6rem 0.9rem;
-  border-radius: 999px;
-  font-weight: 700;
+  padding: 0.6rem 0.9rem; /* verticale en horizontale padding */
+  border-radius: 999px; /* maakt de knoppen volledig rond */
+  font-weight: 700; /* dikte van de tekst */
 }
-
+/* kleur van knoppen in naviagtie menu in header bij hover en active */
 .navbar a:hover,
 .navbar a.active {
   background: #caaf00;
 }
 
-/* Inhoud */
+/* Inhoud */ /* zorgt dat de inhoud niet te breed wordt en mooi gecentreerd is */
+/* past alles binnen <main class="page-content"> aan */
 .page-content {
-  width: min(1100px, 92%);
-  margin: 2rem auto;
-  min-height: 70vh;
+  width: min(1100px, 92%); /*Bepaalt hoe breed de inhoud van je website mag zijn.*/
+  margin: 2rem auto; /* ruimte rond de inhoud en centreert het horizontaal */
+  min-height: 70vh; /* zorgt dat inhoud minstenst 70% van schermhoogte inneemt*/
 }
-
+/*Dit is het grote blok op je HOME pagina en uitleg boksen op voorstellingspagina*/
 .hero,
 .two-column {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 2rem;
+  display: grid; /* maakt een grid layout mogelijk, waardoor je elementen netjes naast elkaar kunt plaatsen */
+  grid-template-columns: 1.1fr 0.9fr; /*breedte van kolommen (links tekst, rechts afbeelding) */
+  align-items: center; /* zorgt dat tekst en afbeelding verticaal gecentreerd (mooi uitgelijn) zijn */ 
+  gap: 2rem; /* ruimte tussen de twee kolommen */
   background: white;
-  padding: 2rem;
-  border-radius: 22px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  padding: 2rem; /* ruimte binnen elke blok */
+  border-radius: 22px; /* maakt de hoeken van de blokken afgerond */
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.107); /* schaduw rond kader (horizontale offset, verticale offset, blur radius, kleur) */
 }
-
+/* past de tekst in de grote blokken aan */
 .hero-text p {
-  font-size: 1.1rem;
+  font-size: 1.1rem; /* vergroot de tekst voor betere leesbaarheid */
 }
-
+/* ontdek meer knop en contact pagina knoppen */
 .button,
 button {
-  display: inline-block;
-  border: none;
+  display: inline-block; /* zorgt dat de knoppen zich gedragen als blokken, maar nog steeds naast elkaar kunnen staan */
+  border: none; /* verwijdert de standaard rand van knoppen */
   background: #caaf00;
   color: white;
-  padding: 0.8rem 1.1rem;
-  border-radius: 999px;
+  padding: 0.8rem 1.1rem; /* ruimte rond het woord */
+  border-radius: 999px; /* maakt de knoppen volledig rond */
   text-decoration: none;
-  font-weight: 700;
-  cursor: pointer;
+  font-weight: 700; 
+  cursor: pointer; /* verandert de cursor in een handje bij hoveren, geeft aan dat het klikbaar is */
 }
-
+/* knoppen ontdek meer en contact pagina knoppen bij hoveren */
 .button:hover,
 button:hover {
-  background: #caaf00;
+  background: #caaf0053;
 }
-
+/* De drie blokken op de voorstellingspagina en tips pagina */
 .cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-top: 2rem;
+  display: grid; /* maakt een grid layout mogelijk, waardoor je elementen netjes naast elkaar kunt plaatsen */
+  grid-template-columns: repeat(3, 1fr); /* maakt 3 gelijke kolommen */
+  gap: 1rem; /* plaats tussen de 3 knopppen op home page*/
+  margin-top: 2rem; /* ruimte boven de blokken, scheidt ze van de tekst erboven */
 }
-
+/* 3 blokken op home page, tips pagina, contact pagina, galerij */
 .card,
 .tip,
 .contact-section,
 .gallery figure {
-  background: white;
-  border-radius: 18px;
-  padding: 1.2rem;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  background: white; 
+  border-radius: 18px; /* maakt de hoeken van de blokken rond */
+  padding: 1.2rem; /* ruimte binnen elke blok */
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08); /* schaduw rond kaders*/
 }
-
+/* kleine icoontjes in kaders*/
 .card i {
   color: #caaf00;
   font-size: 2rem;
 }
-
+/*
 .tips-list {
   display: grid;
   gap: 1rem;
 }
-
+/* kleine icoontjes in tips pagina */
 .tip h3 i {
   color: #caaf00;
 }
 
-/* Galerij */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.2rem;
-}
-
-.gallery figcaption {
-  margin-top: 0.5rem;
-  font-weight: 700;
-  text-align: center;
-}
-
 /* Formulier */
 .contact-form {
-  display: grid;
+  display: grid; /* zet alles mooi onder elkaar*/
   gap: 0.9rem;
 }
-
+/* velden in contact formulier*/
 input,
 select,
 textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 2px solid #ddd;
-  border-radius: 10px;
+  width: 100%; 
+  padding: 0.75rem; /* ruimte binnen de invoervelden */
+  border: 2px solid #ddd; /* standaard randkleur van invoervelden */
+  border-radius: 10px; /* maakt de hoeken van de invoervelden rond */
   font: inherit;
 }
-
-input:focus,
+/* randkleur en schaduw bij focus op invoervelden */
+input:focus, /* zorgt dat bij klikken op invoervelden de randkleur verandert en er een lichte schaduw verschijnt*/
 select:focus,
 textarea:focus {
-  outline: none;
+  outline: none; 
   border-color: #caaf00;
 }
-
+/* voor de aanvinkboxen en privacyverklaring in contact formulier */
 fieldset {
   border: 2px solid #ddd;
   border-radius: 12px;
   padding: 1rem;
 }
-
+/* labels en privacyverklaring in contact formulier */
 fieldset label,
 .privacy {
   display: block;
   margin: 0.4rem 0;
 }
-
+/* invoervelden in aanvinkboxen en privacyverklaring */
 fieldset input,
 .privacy input {
   width: auto;
   margin-right: 0.4rem;
 }
-
+/* verzend en wissenknoppen in contact formulier */
 .form-buttons {
   display: flex;
   gap: 0.8rem;
@@ -246,15 +233,15 @@ fieldset input,
 }
 /* SLIDESHOW */
 
-.slideshow-container {
+.slideshow-container { /*GSM en tablet*/
   text-align: center;
 }
 
-.slideshow-container h2 {
+.slideshow-container h2 {/*GSM en tablet*/
   margin-bottom: 2rem;
 }
 
-.slideshow {
+.slideshow {/*GSM en tablet*/
   position: relative;
   max-width: 800px;
   margin: auto;
@@ -264,25 +251,25 @@ fieldset input,
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
 }
 
-.slide {
+.slide {/*GSM en tablet*/
   display: none;
 }
 
-.slide.active {
+.slide.active {/*GSM en tablet*/
   display: block;
 }
 
-.slide img {
+.slide img {/*GSM en tablet*/
   width: 100%;
   height: 500px;
   object-fit: cover;
 }
 
 /* PIJLTJES */
-
+/* pijltjes in slideshow, positioneren en opmaak */
 .prev,
 .next {
-  position: absolute;
+  position: absolute; /* positioneren ten opzichte van de slideshow container */
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0,0,0,0.6);
@@ -293,22 +280,22 @@ fieldset input,
   cursor: pointer;
   border-radius: 50%;
 }
-
+/* positie pijlen*/
 .prev {
   left: 15px;
 }
-
+/* positie pijlen*/
 .next {
   right: 15px;
 }
-
+/* hover over de pijlen*/
 .prev:hover,
 .next:hover {
   background: #caaf00;
 }
 
 /* RESPONSIVE */
-
+/* past de slideshow en pijltjes aan voor kleinere schermen zoals tablets en gsm's */
 @media (max-width: 768px) {
 
   .slide img {
@@ -321,8 +308,7 @@ fieldset input,
     padding: 0.6rem 0.8rem;
   }
 }
-/* KLEURKIEZER */
-
+/* KLEURKIEZER in contact formulier */
 input[type="color"] {
   width: 100%;
   height: 60px;
@@ -338,24 +324,21 @@ input[type="color"] {
 input[type="color"]::-webkit-color-swatch-wrapper {
   padding: 0;
 }
-
 input[type="color"]::-webkit-color-swatch {
   border: none;
   border-radius: 8px;
 }
 
-/* Hover effect zodat duidelijk is dat je moet klikken */
+/* Hover effect zodat duidelijk is dat je moet klikken bij kleurkiezer */
 input[type="color"]:hover {
   border-color: #caaf00;
   box-shadow: 0 0 10px rgba(202, 175, 0, 0.3);
 }
-
-/* Tekst erboven */
+/* Tekst boven kleurkiezer */
 label[for="kleur"] {
   font-weight: bold;
 }
 /* HAMBURGER KNOP */
-
 .menu-toggle {
   background: none;
   border: none;
@@ -363,27 +346,23 @@ label[for="kleur"] {
   font-size: 2rem;
   cursor: pointer;
 }
-
 /* ZIJMENU */
-
 .side-menu {
   height: 100%;
   width: 0;
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 0;/* zorgt dat het zijmenu aan de bovenkant van het scherm begint */
+  right: 0;/* zorgt dat het zijmenu aan de rechterkant van het scherm verschijnt */
   background: #151515;
   overflow-x: hidden;
   transition: 0.4s;
   padding-top: 80px;
-  z-index: 2000;
-
+  z-index: 2000; /* zorgt dat het zijmenu boven de header en andere elementen komt te staan */
   display: flex;
-  flex-direction: column;
+  flex-direction: column;/* zorgt dat de links onder elkaar staan */
 }
 
-/* LINKS */
-
+/* opmaak van de links (woorden) in het zijmenu */
 .side-menu a {
   color: white;
   padding: 1rem 2rem;
@@ -391,14 +370,14 @@ label[for="kleur"] {
   font-size: 1.2rem;
   transition: 0.3s;
 }
-
+/* over over zijvenster menu*/
 .side-menu a:hover,
 .side-menu a.active {
   background: #caaf00;
 }
 
 /* SLUITKNOP */
-
+/* opmaak van de sluitknop in het zijmenu, positioneren en stijl */
 .close-btn {
   position: absolute;
   top: 20px;
@@ -411,19 +390,18 @@ label[for="kleur"] {
 }
 
 /* HEADER */
-
+/* zorgt dat de header een flex container is, waardoor je de logo en titel netjes naast elkaar kunt plaatsen en uitlijnen */
 .site-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* zorgt dat de logo en titel aan de uiteinden van de header worden geplaatst */
   align-items: center;
 }
 /* LOGO in de header */
-
 .logo-container {
   display: flex;
   align-items: center;
 }
-
+/* opmaak logo clava*/
 .logo {
   height: 100px;
   width: auto;
