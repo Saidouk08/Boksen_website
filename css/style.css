@@ -1,409 +1,1108 @@
-/* totale breedte opmaak van website, '*' betekent alle HTML elementen */
+:root {
+  --black: #050505;
+  --dark: #111111;
+  --white: #ffffff;
+  --grey: #bdbdbd;
+  --line: #2b2b2b;
+}
+
 * {
   box-sizing: border-box;
 }
-/* Zorgt voor vloeiende scroll bij klikken op ankerlinks */
-html {
-  scroll-behavior: smooth;
-}
-/* Algemene opmaak */
+
 body {
-  margin: 0; /*marge van rand website */
-  font-family: 'Roboto', Arial, sans-serif; 
-  background-color: #f4f4f4;
-  color: #222;
-  line-height: 1.6; /*witruimte tussen regels */
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6;
 }
-/* past de 3 soorten titels aan */
-h1, h2, h3 {
-  font-family: 'Oswald', Arial, sans-serif;
-  margin-top: 0; /* witruimte boven koppen */
-}
-/* past alle afbeeldingen aan zodat ze niet buiten hun container vallen en mooi schalen */
+
 img {
   max-width: 100%;
-  height: auto;
   display: block;
-  border-radius: 18px;
 }
-/* Vaste header en menu */
+
 .site-header {
+  background: #000;
+  border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
-  z-index: 1000; /* bepaald welke elementen boven andere worden weergegeven, hoger getal = hoger in de stapel */
-  background: #151515;
-  color: white;
-  padding: 1rem; /* ruimte binnen de header */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* horizontale offset, verticale offset, blur radius, kleur */
+  z-index: 10;
 }
-/* Logo en titel in de header (TITEL NAAST HAMBURGER) */
-.site-header h1 {
-  margin-bottom: 0.75rem; /* witruimte onder de titel */
-  text-align: center; /* centreert de titel horizontaal */
-  letter-spacing: 1px; /* vergroot de ruimte tussen letters voor een strakker uiterlijk */
-}
-/* word niet meer gebruikt*/ /*voor naviagtie menu in header*/
+
 .navbar {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 6px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand img {
+  width: 170px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+  color: var(--grey);
+}
+
+.hero.hero-centered {
+    position: relative;
+
+    min-height: 88vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 120px 20px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.45)
+        ),
+        url("../assets/images/home-hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--grey);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 22px;
+ background: transparent;
+color: white;
+border: 2px solid white;
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.button:hover {
+    background: white;
+    color: black;
+}
+
+.hero-image,
+.photo-box,
+.trainer-photo,
+.sponsor-logo {
+  min-height: 260px;
+  background: #171717;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-/* word niet meer gebruikt*/ /*voor naviagtie menu in header*/
-.navbar a {
-  color: white;
-  text-decoration: none; /* verwijdert de standaard onderstreping van links */
-  background: #2b2b2b;
-  padding: 0.6rem 0.9rem; /* verticale en horizontale padding */
-  border-radius: 999px; /* maakt de knoppen volledig rond */
-  font-weight: 700; /* dikte van de tekst */
-}
-/* kleur van knoppen in naviagtie menu in header bij hover en active */
-.navbar a:hover,
-.navbar a.active {
-  background: #caaf00;
-}
-
-/* Inhoud */ /* zorgt dat de inhoud niet te breed wordt en mooi gecentreerd is */
-/* past alles binnen <main class="page-content"> aan */
-.page-content {
-  width: min(1100px, 92%); /*Bepaalt hoe breed de inhoud van je website mag zijn.*/
-  margin: 2rem auto; /* ruimte rond de inhoud en centreert het horizontaal */
-  min-height: 70vh; /* zorgt dat inhoud minstenst 70% van schermhoogte inneemt*/
-}
-/*Dit is het grote blok op je HOME pagina en uitleg boksen op voorstellingspagina*/
-.hero,
-.two-column {
-  display: grid; /* maakt een grid layout mogelijk, waardoor je elementen netjes naast elkaar kunt plaatsen */
-  grid-template-columns: 1.1fr 0.9fr; /*breedte van kolommen (links tekst, rechts afbeelding) */
-  align-items: center; /* zorgt dat tekst en afbeelding verticaal gecentreerd (mooi uitgelijn) zijn */ 
-  gap: 2rem; /* ruimte tussen de twee kolommen */
-  background: white;
-  padding: 2rem; /* ruimte binnen elke blok */
-  border-radius: 22px; /* maakt de hoeken van de blokken afgerond */
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.107); /* schaduw rond kader (horizontale offset, verticale offset, blur radius, kleur) */
-}
-/* past de tekst in de grote blokken aan */
-.hero-text p {
-  font-size: 1.1rem; /* vergroot de tekst voor betere leesbaarheid */
-}
-/* ontdek meer knop en contact pagina knoppen */
-.button,
-button {
-  display: inline-block; /* zorgt dat de knoppen zich gedragen als blokken, maar nog steeds naast elkaar kunnen staan */
-  border: none; /* verwijdert de standaard rand van knoppen */
-  background: #caaf00;
-  color: white;
-  padding: 0.8rem 1.1rem; /* ruimte rond het woord */
-  border-radius: 999px; /* maakt de knoppen volledig rond */
-  text-decoration: none;
-  font-weight: 700; 
-  cursor: pointer; /* verandert de cursor in een handje bij hoveren, geeft aan dat het klikbaar is */
-}
-/* knoppen ontdek meer en contact pagina knoppen bij hoveren */
-.button:hover,
-button:hover {
-  background: #caaf0053;
-}
-/* De drie blokken op de voorstellingspagina en tips pagina */
-.cards {
-  display: grid; /* maakt een grid layout mogelijk, waardoor je elementen netjes naast elkaar kunt plaatsen */
-  grid-template-columns: repeat(3, 1fr); /* maakt 3 gelijke kolommen */
-  gap: 1rem; /* plaats tussen de 3 knopppen op home page*/
-  margin-top: 2rem; /* ruimte boven de blokken, scheidt ze van de tekst erboven */
-}
-/* 3 blokken op home page, tips pagina, contact pagina, galerij */
-.card,
-.tip,
-.contact-section,
-.gallery figure {
-  background: white; 
-  border-radius: 18px; /* maakt de hoeken van de blokken rond */
-  padding: 1.2rem; /* ruimte binnen elke blok */
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08); /* schaduw rond kaders*/
-}
-/* kleine icoontjes in kaders*/
-.card i {
-  color: #caaf00;
-  font-size: 2rem;
-}
-/*
-.tips-list {
-  display: grid;
-  gap: 1rem;
-}
-/* kleine icoontjes in tips pagina */
-.tip h3 i {
-  color: #caaf00;
-}
-
-/* Formulier */
-.contact-form {
-  display: grid; /* zet alles mooi onder elkaar*/
-  gap: 0.9rem;
-}
-/* velden in contact formulier*/
-input,
-select,
-textarea {
-  width: 100%; 
-  padding: 0.75rem; /* ruimte binnen de invoervelden */
-  border: 2px solid #ddd; /* standaard randkleur van invoervelden */
-  border-radius: 10px; /* maakt de hoeken van de invoervelden rond */
-  font: inherit;
-}
-/* randkleur en schaduw bij focus op invoervelden */
-input:focus, /* zorgt dat bij klikken op invoervelden de randkleur verandert en er een lichte schaduw verschijnt*/
-select:focus,
-textarea:focus {
-  outline: none; 
-  border-color: #caaf00;
-}
-/* voor de aanvinkboxen en privacyverklaring in contact formulier */
-fieldset {
-  border: 2px solid #ddd;
-  border-radius: 12px;
-  padding: 1rem;
-}
-/* labels en privacyverklaring in contact formulier */
-fieldset label,
-.privacy {
-  display: block;
-  margin: 0.4rem 0;
-}
-/* invoervelden in aanvinkboxen en privacyverklaring */
-fieldset input,
-.privacy input {
-  width: auto;
-  margin-right: 0.4rem;
-}
-/* verzend en wissenknoppen in contact formulier */
-.form-buttons {
-  display: flex;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-}
-
-/* Footer */
-.site-footer {
-  background: #151515;
-  color: white;
+  align-items: center;
+  color: #aaa;
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+  font-weight: 800;
+  overflow: hidden;
 }
 
-/* Responsief: tablet en gsm */
-@media (max-width: 800px) {
+.hero-image img,
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 45px 24px;
+}
+
+.page-title {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 70px 24px 30px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cards,
+.trainer-grid,
+.sponsor-grid,
+.photo-grid,
+.two-columns {
+  display: grid;
+  gap: 22px;
+}
+
+.cards {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card,
+.panel,
+.trainer-card,
+.sponsor-card {
+  background: var(--dark);
+  border: 1px solid var(--line);
+  padding: 24px;
+}
+
+.card {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.two-columns {
+  grid-template-columns: 1fr 1.4fr;
+}
+
+.info-list {
+  padding-left: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid var(--line);
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background: #000;
+}
+
+.trainer-grid,
+.sponsor-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.photo-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.photo-grid.large {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.trainer-card h2,
+.sponsor-card h2 {
+  margin-top: 18px;
+}
+
+.footer {
+  margin-top: 60px;
+  padding: 35px 24px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--grey);
+}
+
+.footer img {
+  width: 200px;
+  margin: 0 auto 15px;
+}
+
+/* INPUT HULP:
+   Wil je een foto toevoegen?
+   1. Zet je foto in de map assets/images/
+   2. Vervang bijvoorbeeld:
+      <div class="photo-box"><span>INPUT FOTO</span></div>
+      door:
+      <div class="photo-box"><img src="assets/images/jouw-foto.jpg" alt="Beschrijving"></div>
+*/
+
+@media (max-width: 850px) {
+
   .hero,
-  .two-column,
+  .two-columns,
   .cards,
-  .gallery {
+  .trainer-grid,
+  .sponsor-grid,
+  .photo-grid,
+  .photo-grid.large {
     grid-template-columns: 1fr;
   }
 
-  .site-header h1 {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 480px) {
   .navbar {
     flex-direction: column;
   }
 
-  .navbar a {
-    width: 100%;
-    text-align: center;
-  }
-
-  .page-content {
-    width: 94%;
-    margin: 1rem auto;
-  }
-
-  .hero,
-  .two-column,
-  .card,
-  .tip,
-  .contact-section,
-  .gallery figure {
-    padding: 1rem;
+  .nav-links {
+    justify-content: center;
   }
 }
-/* SLIDESHOW */
 
-.slideshow-container { /*GSM en tablet*/
+
+/* Aanpassingen */
+.hero-centered {
+  grid-template-columns: 1fr;
+  min-height: 70vh;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.slideshow-container h2 {/*GSM en tablet*/
-  margin-bottom: 2rem;
+.hero-centered .hero-text {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.slideshow {/*GSM en tablet*/
-  position: relative;
-  max-width: 800px;
-  margin: auto;
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+.hero-centered h1 {
+  font-size: clamp(48px, 8vw, 92px);
 }
 
-.slide {/*GSM en tablet*/
-  display: none;
-}
-
-.slide.active {/*GSM en tablet*/
+.offer-card {
   display: block;
+  min-height: auto;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
-.slide img {/*GSM en tablet*/
+.offer-photo {
+  height: 180px;
+  background: #171717;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  margin-bottom: 18px;
+}
+
+.offer-photo img {
   width: 100%;
-  height: 500px;
+  height: 100%;
   object-fit: cover;
 }
 
-/* PIJLTJES */
-/* pijltjes in slideshow, positioneren en opmaak */
-.prev,
-.next {
-  position: absolute; /* positioneren ten opzichte van de slideshow container */
+.offer-card h3 {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.slideshow {
+  position: relative;
+  width: 80%;
+  height: 620px;
+  background: #171717;
+  overflow: hidden;
+}
+
+.slideshow .slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: slideshow 75s infinite;
+}
+
+.slideshow .slide:nth-child(1) {
+  animation-delay: 0s;
+  opacity: 1;
+}
+
+.slideshow .slide:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.slideshow .slide:nth-child(3) {
+  animation-delay: 10s;
+}
+
+.slideshow .slide:nth-child(4) {
+  animation-delay: 15s;
+}
+
+.slideshow .slide:nth-child(5) {
+  animation-delay: 20s;
+}
+
+.slideshow .slide:nth-child(6) {
+  animation-delay: 25s;
+}
+
+.slideshow .slide:nth-child(7) {
+  animation-delay: 30s;
+}
+
+.slideshow .slide:nth-child(8) {
+  animation-delay: 35s;
+}
+
+.slideshow .slide:nth-child(9) {
+  animation-delay: 40s;
+}
+
+.slideshow .slide:nth-child(10) {
+  animation-delay: 45s;
+}
+
+.slideshow .slide:nth-child(11) {
+  animation-delay: 50s;
+}
+
+.slideshow .slide:nth-child(12) {
+  animation-delay: 55s;
+}
+
+.slideshow .slide:nth-child(13) {
+  animation-delay: 60s;
+}
+
+.slideshow .slide:nth-child(14) {
+  animation-delay: 65s;
+}
+
+.slideshow .slide:nth-child(15) {
+  animation-delay: 70s;
+}
+
+@keyframes slideshow {
+  0% {
+    opacity: 0;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  6% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 850px) {
+  .slideshow {
+    height: 360px;
+  }
+}
+
+.social-icons {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.social-icons a {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.social-icons svg {
+  width: 16px;
+  height: 16px;
+  fill: white;
+  transition: 0.3s ease;
+}
+
+.social-icons a:hover svg {
+  opacity: 0.7;
+}
+
+.panel a {
+  color: white;
+  text-decoration: none;
+}
+
+.panel a:hover {
+  opacity: 0.7;
+}
+
+
+@media (max-width: 768px) {
+
+  .hero-centered h1 {
+    font-size: 42px;
+  }
+
+  .hero-text p {
+    font-size: 15px;
+    padding: 0 10px;
+  }
+
+  .nav-links {
+    gap: 18px;
+    font-size: 12px;
+  }
+
+  .cards,
+  .trainer-grid,
+  .sponsor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .offer-photo {
+    height: 220px;
+  }
+
+  .slideshow {
+    height: 260px;
+  }
+
+  .section {
+    padding: 30px 18px;
+  }
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide-btn {
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
-  color: white;
+  z-index: 5;
+
+  background: rgba(0, 0, 0, 0.5);
   border: none;
-  font-size: 2rem;
-  padding: 0.8rem 1rem;
+  color: white;
+
+  width: 45px;
+  height: 45px;
+
   cursor: pointer;
-  border-radius: 50%;
+  font-size: 26px;
+
+  transition: 0.3s;
 }
-/* positie pijlen*/
+
+.slide-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .prev {
   left: 15px;
 }
-/* positie pijlen*/
+
 .next {
   right: 15px;
 }
-/* hover over de pijlen*/
-.prev:hover,
-.next:hover {
-  background: #caaf00;
-}
 
-/* RESPONSIVE */
-/* past de slideshow en pijltjes aan voor kleinere schermen zoals tablets en gsm's */
-@media (max-width: 768px) {
+.clubplanner-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 26px;
 
-  .slide img {
-    height: 300px;
-  }
-
-  .prev,
-  .next {
-    font-size: 1.5rem;
-    padding: 0.6rem 0.8rem;
-  }
-}
-/* KLEURKIEZER in contact formulier */
-input[type="color"] {
-  width: 100%;
-  height: 60px;
-  padding: 5px;
-  border: 2px solid #ccc;
-  border-radius: 12px;
   background: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
+  color: black;
 
-/* Zorgt dat de kleur de hele balk vult */
-input[type="color"]::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-input[type="color"]::-webkit-color-swatch {
-  border: none;
-  border-radius: 8px;
-}
-
-/* Hover effect zodat duidelijk is dat je moet klikken bij kleurkiezer */
-input[type="color"]:hover {
-  border-color: #caaf00;
-  box-shadow: 0 0 10px rgba(202, 175, 0, 0.3);
-}
-/* Tekst boven kleurkiezer */
-label[for="kleur"] {
-  font-weight: bold;
-}
-/* HAMBURGER KNOP */
-.menu-toggle {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-}
-/* ZIJMENU */
-.side-menu {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  top: 0;/* zorgt dat het zijmenu aan de bovenkant van het scherm begint */
-  right: 0;/* zorgt dat het zijmenu aan de rechterkant van het scherm verschijnt */
-  background: #151515;
-  overflow-x: hidden;
-  transition: 0.4s;
-  padding-top: 80px;
-  z-index: 2000; /* zorgt dat het zijmenu boven de header en andere elementen komt te staan */
-  display: flex;
-  flex-direction: column;/* zorgt dat de links onder elkaar staan */
-}
-
-/* opmaak van de links (woorden) in het zijmenu */
-.side-menu a {
-  color: white;
-  padding: 1rem 2rem;
   text-decoration: none;
-  font-size: 1.2rem;
-  transition: 0.3s;
-}
-/* over over zijvenster menu*/
-.side-menu a:hover,
-.side-menu a.active {
-  background: #caaf00;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  transition: 0.3s ease;
 }
 
-/* SLUITKNOP */
-/* opmaak van de sluitknop in het zijmenu, positioneren en stijl */
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  background: none;
-  border: none;
+.clubplanner-btn:hover {
+  background: #cfcfcf;
+}
+
+.hero-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.9;
+  margin-bottom: 30px;
+}
+
+.small-top {
+  font-size: 28px;
+  letter-spacing: 8px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.big-center {
+  font-size: clamp(90px, 11vw, 180px);
+  font-weight: 900;
+  letter-spacing: 6px;
+}
+
+.small-bottom {
+  font-size: 22px;
+  letter-spacing: 6px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 2px solid white;
   color: white;
-  font-size: 2.5rem;
-  cursor: pointer;
 }
 
-/* HEADER */
-/* zorgt dat de header een flex container is, waardoor je de logo en titel netjes naast elkaar kunt plaatsen en uitlijnen */
-.site-header {
-  display: flex;
-  justify-content: space-between; /* zorgt dat de logo en titel aan de uiteinden van de header worden geplaatst */
-  align-items: center;
+.secondary-btn:hover {
+  background: white;
+  color: black;
 }
-/* LOGO in de header */
-.logo-container {
-  display: flex;
-  align-items: center;
+.subscriptions-title {
+    text-align: center;
 }
-/* opmaak logo clava*/
-.logo {
-  height: 100px;
-  width: auto;
-  object-fit: contain;
+
+.subscription-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.subscription-grid.one-card {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.subscription-card {
+    background: #151515;
+    border: 1px solid #2b2b2b;
+    border-radius: 22px;
+    padding: 34px;
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.subscription-card h3 {
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.price {
+    font-size: 64px;
+    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+.price span {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.subscription-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 35px;
+}
+
+.subscription-card li {
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.subscription-card li::before {
+    content: "✓";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    margin-right: 12px;
+    border-radius: 50%;
+    background: #2c2c2c;
+    color: white;
+    font-size: 13px;
+}
+
+.letsgo-btn {
+    display: inline-block;
+    width: fit-content;
+    padding: 13px 22px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+.letsgo-btn:hover {
+    opacity: 0.75;
+}
+
+.highlight-card {
+    border: 2px solid white;
+}
+
+@media (max-width: 900px) {
+    .subscription-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .subscription-card {
+        min-height: auto;
+    }
+
+    .price {
+        font-size: 48px;
+    }
+}
+.subscription-card {
+    opacity: 0;
+    transform: translateY(80px);
+    animation: slideUp 0.8s ease forwards;
+}
+
+/* kleine vertraging tussen cards */
+.subscription-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.subscription-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.subscription-card:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+@keyframes slideUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Witte achtergrond enkel abonnementenpagina */
+
+.subscriptions-title,
+.subscription-grid,
+.subscription-card,
+.subscription-grid.one-card,
+.abonnement-page {
+    color: black;
+}
+
+.abonnement-page {
+    background: white;
+}
+
+.abonnement-page .section,
+.abonnement-page .page-title {
+    background: white;
+}
+
+.abonnement-page h1,
+.abonnement-page h2 {
+    color: black;
+}
+.subscription-card h3,
+.subscription-card p,
+.subscription-card li,
+.subscription-card .price,
+.subscription-card .price span {
+    color: white;
+}
+/* PROFESSIONELE COACHES PAGINA */
+
+.coaches-hero {
+    text-align: center;
+    padding: 90px 20px 50px;
+}
+
+.coaches-hero h1 {
+    font-size: clamp(60px, 10vw, 120px);
+    line-height: 0.9;
+    margin-bottom: 25px;
+}
+
+.coaches-hero p {
+    font-size: 20px;
+    color: #bdbdbd;
+}
+
+.coaches-section {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+
+.coach-card-pro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #111;
+    border: 1px solid #2b2b2b;
+    min-height: 480px;
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+.coach-card-pro.reverse .coach-image {
+    order: 2;
+}
+
+.coach-card-pro.reverse .coach-content {
+    order: 1;
+}
+
+.coach-image {
+    min-height: 480px;
+    background: #171717;
+}
+
+.coach-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.coach-content {
+    padding: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.coach-label {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #bdbdbd;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.coach-content h2 {
+    font-size: clamp(38px, 5vw, 42px);
+    margin-bottom: 5px;
+}
+
+.coach-content p {
+    font-size: 18px;
+    color: #d0d0d0;
+}
+
+.coach-socials {
+    display: flex;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.coach-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coach-socials svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+    transition: 0.3s ease;
+}
+
+.coach-socials svg:hover {
+    opacity: 0.7;
+    transform: scale(1.08);
+}
+
+@media (max-width: 850px) {
+    .coach-card-pro,
+    .coach-card-pro.reverse {
+        grid-template-columns: 1fr;
+    }
+
+    .coach-card-pro.reverse .coach-image,
+    .coach-card-pro.reverse .coach-content {
+        order: initial;
+    }
+
+    .coach-content {
+        padding: 35px;
+    }
+
+    .coach-image {
+        min-height: 360px;
+    }
+}
+.abonnement-footer .social-icons svg {
+    fill: black;
+}
+
+.abonnement-footer .social-icons a:hover svg {
+    opacity: 0.7;
+}
+.hero-text {
+    position: relative;
+    z-index: 2;
+}.offer-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.offer-card-link .offer-card {
+    transition: 0.3s ease;
+}
+
+.offer-card-link:hover .offer-card {
+    transform: translateY(-8px);
+}
+.training-hero {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.training-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.training-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.training-overlay h1 {
+    color: white;
+    font-size: clamp(48px, 9vw, 100px);
+    text-transform: uppercase;
+}
+
+.training-info {
+    max-width: 900px;
+}
+
+.training-info p,
+.training-info li {
+    font-size: 18px;
+    color: #d0d0d0;
+}
+
+.training-info ul {
+    margin-bottom: 35px;
+}
+
+.training-btn {
+    margin-top: 20px;
+}
+.training-page .navbar,
+.training-page .site-header .navbar {
+    padding: 8px 24px;
+}
+
+.training-page .brand img {
+    width: 90px;
+}
+
+.training-page .nav-links {
+    gap: 40px;
+}
+.training-buttons {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-top: 45px;
+    flex-wrap: wrap;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+
+    color: white;
+    text-decoration: none;
+
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    opacity: 0.7;
+    transform: translateX(-4px);
+}.training-buttons {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-top: 45px;
+    flex-wrap: wrap;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+
+    color: white;
+    text-decoration: none;
+
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    opacity: 0.7;
+    transform: translateX(-4px);
+}.training-info-section {
+    background: white;
+    padding: 90px 0;
+}
+
+.training-info {
+    color: black;
+}
+
+.training-info h2 {
+    color: black;
+}
+
+.training-info p,
+.training-info li {
+    color: #333;
+}
+
+/* KNOPPEN OMGEKEERD */
+
+.training-btn {
+    background: black;
+    color: white;
+    border: 2px solid black;
+}
+
+.training-btn:hover {
+    background: white;
+    color: black;
+}
+
+.back-btn {
+    color: black;
+}
+
+.back-btn:hover {
+    opacity: 0.7;
+}
+.contact-section a {
+    color: white;
+    text-decoration: none;
+}.training-hero {
+    position: relative;
+    height: 65vh;
+    overflow: hidden;
+}
+
+.training-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.training-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.55);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.training-overlay h1 {
+    color: white;
+
+    font-size: clamp(50px, 8vw, 120px);
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
 }
