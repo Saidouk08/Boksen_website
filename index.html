@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Academy of the Golden Gloves</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+  <nav class="navbar">
+
+    <a class="brand" href="index.html">
+      <img src="assets/images/TAG_Transparant_wit.png" alt="The Academy of the Golden Gloves logo">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="info.html">INFO</a></li>
+      <li><a href="trainers.html">COACHES</a></li>
+      <li><a href="abbonementen.html">ABBONEMENTEN</a></li>
+
+      
+    </ul>
+
+  </nav>
+</header>
+
+  <main>
+    <section class="hero hero-centered">
+      <div class="hero-text">
+        <p class="eyebrow">Boksclub</p>
+        <h1 class="hero-logo-text">
+          <span class="small-top">THE</span>
+          <span class="small-center">ACADEMY</span>
+          <span class="small-bottom">OF THE GOLDEN GLOVES</span>
+        </h1>
+        <!-- INPUT: Vervang deze introductietekst door je eigen tekst. -->
+        <p>
+          Train in één van de grootste en best uitgeruste bokszalen van België, waar elke training wordt gegeven met oog
+          voor detail.
+          Ontdek boksen, krachttraining en personal training in een professionele en motiverende omgeving,
+          onder begeleiding van gecertificeerde trainers die je helpen sterker, fitter en technisch beter te worden.
+        </p>
+        <div class="hero-buttons">
+
+          <a class="button" href="info.html">
+            Bekijk trainingen
+          </a>
+
+          <a class="button secondary-btn" href="trainers.html">
+            Ontdek de coaches
+          </a>
+
+        </div>
+    </section>
+
+    <section class="section">
+      <h2>Foto's van de club</h2>
+      <div class="slideshow">
+
+        <button class="slide-btn prev" onclick="changeSlide(-1)">❮</button>
+        <button class="slide-btn next" onclick="changeSlide(1)">❯</button>
+
+        <img class="slide" src="assets/images/club-photo-1.avif" alt="Clubfoto 1">
+        <img class="slide" src="assets/images/AK47_champ.jpeg" alt="Clubfoto 2">
+        <img class="slide" src="assets/images/Green_hill_academy.jpeg" alt="Clubfoto 3">
+        <img class="slide" src="assets/images/Lee_GBG.jpeg" alt="Clubfoto 4">
+        <img class="slide" src="assets/images/Winnaar.jpeg" alt="Clubfoto 5">
+        <img class="slide" src="assets/images/Blessing_liege.jpeg" alt="Clubfoto 6">
+        <img class="slide" src="assets/images/Champions_Pic.jpeg" alt="Clubfoto 7">
+        <img class="slide" src="assets/images/Blessing_VBL.jpeg" alt="Clubfoto 8">
+        <img class="slide" src="assets/images/Kenny_grizzly.jpeg" alt="Clubfoto 9">
+        <img class="slide" src="assets/images/Equipment_greenHill.jpeg" alt="Clubfoto 10">
+        <img class="slide" src="assets/images/blessing_green_hill_training.jpeg" alt="Clubfoto 11">
+        <img class="slide" src="assets/images/Academy_kids.jpeg" alt="Clubfoto 12">
+        <img class="slide" src="assets/images/elite_boxing.jpeg" alt="Clubfoto 13">
+        <img class="slide" src="assets/images/Fundamentals.jpeg" alt="Clubfoto 14">
+        <img class="slide" src="assets/images/Prof_boxing.jpeg" alt="Clubfoto 15">
+        <img class="slide" src="assets/images/Crossfit_training.jpg" alt="Clubfoto 16">
+        <img class="slide" src="assets/images/greenhill_gloves.jpeg" alt="Clubfoto 17">
+        <img class="slide" src="assets/images/Green_hill_ak47.jpeg" alt="Clubfoto 18">
+        <img class="slide" src="assets/images/GreenHill_blessing_training.JPG" alt="Clubfoto 19">
+        <img class="slide" src="assets/images/GreenHill_Senne.JPG" alt="Clubfoto 20">
+        <img class="slide" src="assets/images/GreenHill_ak47_2.JPG" alt="Clubfoto 21">
+
+      </div>
+
+      <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function showSlide(index) {
+
+          slides.forEach(slide => {
+            slide.classList.remove("active");
+          });
+
+          if (index >= slides.length) {
+            slideIndex = 0;
+          }
+
+          if (index < 0) {
+            slideIndex = slides.length - 1;
+          }
+
+          slides[slideIndex].classList.add("active");
+        }
+
+        function changeSlide(direction) {
+          slideIndex += direction;
+          showSlide(slideIndex);
+        }
+
+        setInterval(() => {
+          slideIndex++;
+          showSlide(slideIndex);
+        }, 5000);
+
+        showSlide(slideIndex);
+      </script>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="assets/images/TAG_Transparant_wit.png" alt="The Academy of the Golden Gloves logo">
+    <p>© 2026 The Academy of Golden Gloves</p>
+    <div class="social-icons">
+      <!-- INSTAGRAM -->
+      <a href="https://www.instagram.com/theacademyghent/" target="_blank" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path
+            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9 0-14.9 12-26.9 26.9-26.9 14.9 0 26.9 12 26.9 26.9zM398.8 80c-14.1-14.1-33.1-22-53.1-22H102.3c-20 0-39 7.9-53.1 22C35.1 94.1 27.2 113.1 27.2 133.1v243.4c0 20 7.9 39 22 53.1 14.1 14.1 33.1 22 53.1 22h243.4c20 0 39-7.9 53.1-22 14.1-14.1 22-33.1 22-53.1V133.1c0-20-7.9-39-22-53.1zM382.6 376.5c0 10.7-4.2 20.8-11.8 28.4-7.6 7.6-17.7 11.8-28.4 11.8H105.6c-10.7 0-20.8-4.2-28.4-11.8-7.6-7.6-11.8-17.7-11.8-28.4V135.5c0-10.7 4.2-20.8 11.8-28.4 7.6-7.6 17.7-11.8 28.4-11.8h236.8c10.7 0 20.8 4.2 28.4 11.8 7.6 7.6 11.8 17.7 11.8 28.4v241z" />
+        </svg>
+      </a>
+
+      <!-- FACEBOOK -->
+      <a href="https://www.facebook.com/THEACADEMYGHENT/?locale=nl_BE" target="_blank" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+          <path
+            d="M279.14 288l14.22-92.66h-88.91V135.1c0-25.35 12.42-50.06 52.24-50.06H297V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+        </svg>
+      </a>
+    </div>
+    <p>Website by Clava software</p>
+    <!-- INPUT: Pas hier eventueel je adres, telefoonnummer, e-mail of social media aan. -->
+  </footer>
+  
+</body>
+
+</html>
